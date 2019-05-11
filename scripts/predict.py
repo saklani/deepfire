@@ -3,13 +3,14 @@ import random
 import argparse
 
 from keras.models import load_model
-from preprocess import *
+from core.preprocess import *
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--data_path", type=str, help='Path to training data')
 parser.add_argument("--artist", type=str, help='Artist name')
 
 args = parser.parse_args()
+
 
 def generate_lyrics(text):
     bars = []
@@ -133,6 +134,7 @@ def predict(path, artist):
         for bar in rap:
             f.write(bar)
             f.write("\n")
+
 
 if __name__ == "__main__":
     data_path = args.data_path
